@@ -25,7 +25,7 @@ module OmniContacts
       private 
 
       def contacts_req_params
-        { "max-results" => "100", "sortorder" => "descending" }
+        { "max-results" => "99999", "sortorder" => "descending" }
       end
 
       def contacts_req_headers token, token_type
