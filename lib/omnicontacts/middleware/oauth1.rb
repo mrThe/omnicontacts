@@ -18,7 +18,7 @@ module OmniContacts
         super app, options
         @consumer_key = consumer_key
         @consumer_secret = consumer_secret
-        @callback_path = options[:callback_path] ||= "/contacts/#{class_name}/callback"
+        @callback_path = options[:callback_path] || "/contacts/#{class_name}/callback"
         @token_prop_name = "#{base_prop_name}.oauth_token"
       end
 
@@ -35,11 +35,11 @@ module OmniContacts
         (auth_token, auth_token_secret) = fetch_authorization_token
         session[@token_prop_name] = auth_token
         session[token_secret_prop_name(auth_token)] = auth_token_secret
-        redirect_to_authorization_site(auth_token) 
+        redirect_to_authorization_site(auth_token)
       end
 
       def token_secret_prop_name oauth_token
-        "#{base_prop_name}.#{oauth_token}.oauth_token_secret"  
+        "#{base_prop_name}.#{oauth_token}.oauth_token_secret"
       end
 
       def redirect_to_authorization_site auth_token
